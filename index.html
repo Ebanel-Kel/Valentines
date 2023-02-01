@@ -1,7 +1,7 @@
 <head>
 <meta charset="utf-8">
 <title>Valentine's Spin Wheel</title>
-	<script src="https://github.com/Ebanel-Kel/Valentines/blob/d3d1c4d77fd1b1fb75f16dda2f55c5243f640c34/java/Winwheel.js"></script>
+	<script src="java/Winwheel.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 	<style>
 		body {
@@ -102,13 +102,13 @@
 				</td>	
 				<td>
 					<div>
-					<img src="https://github.com/Ebanel-Kel/Valentines/blob/d3d1c4d77fd1b1fb75f16dda2f55c5243f640c34/img_assets/ValentinesSpinWheel_pointer_vertical.png" alt="pointer">
+					<img src="img_assets/ValentinesSpinWheel_pointer_vertical.png" alt="pointer">
 					</div>
 				</td>	
 			</tr>	
 		</table>	
 		<div align="center" style="padding:30px">
-		<img id="spin_button" src="https://github.com/Ebanel-Kel/Valentines/blob/d3d1c4d77fd1b1fb75f16dda2f55c5243f640c34/img_assets/ValentinesSpinWheel_spin_on.png" alt="Spin" onClick="startSpin();" />
+		<img id="spin_button" src="img_assets_ValentinesSpinWheel_spin_on.png" alt="Spin" onClick="startSpin();" />
 		</div>
 		<div class="disclaimer">
 		<p>One spin per customer. Customer must be registered and logged in account to use code. Code is one time use. Promotion cannot be combine with any other offers.</p>
@@ -155,7 +155,7 @@
             }
 
             // Set the image source, once complete this will trigger the onLoad callback (above).
-            loadedImg.src = "https://github.com/Ebanel-Kel/Valentines/blob/d3d1c4d77fd1b1fb75f16dda2f55c5243f640c34/img_assets/ValentinesSpinWheel_horizontal.png";
+            loadedImg.src = "img_assets/ValentinesSpinWheel_horizontal.png";
 
 
 
@@ -174,7 +174,7 @@
                 if (wheelSpinning == false) {
 
                     // Disable the spin button so can't click again while wheel is spinning.
-                    document.getElementById('spin_button').src       = "https://github.com/Ebanel-Kel/Valentines/blob/d3d1c4d77fd1b1fb75f16dda2f55c5243f640c34/img_assets/ValentinesSpinWheel_spin_off.png";
+                    document.getElementById('spin_button').src       = "img_assets/ValentinesSpinWheel_spin_off.png";
                     document.getElementById('spin_button').className = "";
 
                     // Begin the spin animation by calling startAnimation on the wheel object.
