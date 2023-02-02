@@ -8,6 +8,10 @@
 			margin: 0px;
 			padding: 0px; 
 		}
+		#canvas{
+			z-index:1;
+		}
+		
 		#container{
 			
 			background: url(img_assets/ValentinesWheel_bg.jpg), #7F0406;
@@ -16,6 +20,23 @@
 			margin: 0px;
 			padding: 0px 0px 20px 0px;
 			border: 0;
+		}
+		
+		#Valentine_Wheel{
+			position: relative;
+			
+		}
+		.prize_arrow {
+			display: flex;
+			justify-content: center;
+		}
+		.prize_wheel {
+			display: flex;
+			justify-content: center;	
+		}
+		#chocwheel {
+			position: absolute;
+			z-index: 99;
 		}
 		#rewards {
 			position: fixed;
@@ -88,30 +109,27 @@
 				</div>
 			</div>
 		</div>
-		<table border="0" align="center">
-			<tr>
-				<td style="padding-left: 66px;">
-					<div>
-						<canvas id="canvas" width="500" height="500"
-							data-responsiveMinWidth="400"
-							data-responsiveScaleHeight="true"								
-							data-responsiveMargin="250"	>
-            			Canvas not supported, use another browser.
-        				</canvas>
-					</div>
-				</td>	
-				<td>
-					<div>
-					<img src="img_assets/ValentinesSpinWheel_pointer_vertical.png" alt="pointer">
-					</div>
-				</td>	
-			</tr>	
-		</table>	
+		<div id="Valentine_Wheel">
+			<div class="prize_arrow">
+				<img src="img_assets/ValentinesSpinWheel_pointer.png" alt="V">
+			</div>
+			<div class="prize_wheel">
+				<canvas id="canvas" width="500" height="500"
+					data-responsiveMinWidth="200"
+					data-responsiveScaleHeight="true"								
+					data-responsiveMargin="10"	>
+            		Canvas not supported, use another browser.
+        		</canvas>
+				<img id="chocwheel" src="img_assets/ValentinesSpinWheel_chocolate.png" alt="Valentine's Prize Wheel"/>
+			</div>
+		</div>
+				
+						
 		<div align="center" style="padding:30px">
 		<img id="spin_button" src="img_assets/ValentinesSpinWheel_spin_on.png" alt="Spin" onClick="startSpin();" />
 		</div>
 		<div class="disclaimer">
-		<p>Entry to the Spin To Win is free and every participant is entitled to a minimum of one entry. Entrants need to be logged in to use the code at checkout. Promotion cannot be combined with any other offer. Quantities of items are subject to stock availability. Spin to Win will be active from 2/6/23 to 2/15/23.</p>
+		<p>One spin per customer. Customer must be registered and logged in account to use code. Code is one time use. Promotion cannot be combine with any other offers.</p>
 		</div>
 	</div>	
         <script>
@@ -121,19 +139,21 @@
                 'outerRadius'       : 0,       // Set outer radius so wheel fits inside the background.
                 'drawMode'          : 'image',   // drawMode must be set to image.
                 'drawText'          : false,      // Need to set this true if want code-drawn text on image wheels.
-                 'responsive'   : true,			// Responsive enabled
+                'responsive'   : true,			// Responsive enabled
 				'segments'     :                // Define segments.
                 [
-                  	{'text' : '<h2>15% OFF</h2><h3>HEART15OFF</h3>', },
-			{'text' : '<h2>Free Hair Band</h2><h3>HEARTBAND</h3>', },
-			{'text' : '<h2>20% OFF</h2><h3>HEART20OFF</h3>', },
+					{'text' : '<h2>15% OFF</h2><h3>HEART15OFF</h3>',},
+					{'text' : '<h2>Free Hair Band</h2><h3>HEARTBAND</h3>', },
+					{'text' : '<h2>25% OFF</h2><h3>HEART25OFF</h3>', },
+					{'text' : '<h2>15% OFF</h2><h3>HEART15OFF</h3>', },
+					{'text' : '<h2>Free Hair Band</h2><h3>HEARTBAND</h3>', },
+				   	{'text' : '<h2>20% OFF</h2><h3>HEART20OFF</h3>', },
                    	{'text' : '<h2>Free Charcoal Mask</h2><h3>HEARTCHARCOAL</h3>', },
                    	{'text' : '<h2>Free Hair Band</h2><h3>HEARTBAND</h3>', },
                    	{'text' : '<h2>25% OFF</h2><h3>HEART25OFF</h3>', },
-			{'text' : '<h2>20% OFF</h2><h3>HEART20OFF</h3>', },
-			{'text' : '<h2>15% OFF</h2><h3>HEART15OFF</h3>',},
-			{'text' : '<h2>Free Hair Band</h2><h3>HEARTBAND</h3>', },
-			{'text' : '<h2>25% OFF</h2><h3>HEART25OFF</h3>', }
+				   	{'text' : '<h2>20% OFF</h2><h3>HEART20OFF</h3>', }
+				   
+				   
                 ],
                 'animation' :                   // Specify the animation to use.
                 {
@@ -155,7 +175,7 @@
             }
 
             // Set the image source, once complete this will trigger the onLoad callback (above).
-            loadedImg.src = "img_assets/ValentinesSpinWheel_horizontal1.png";
+            loadedImg.src = "img_assets/ValentinesSpinWheel_horizontal.png";
 
 
 
@@ -176,6 +196,7 @@
                     // Disable the spin button so can't click again while wheel is spinning.
                     document.getElementById('spin_button').src       = "img_assets/ValentinesSpinWheel_spin_off.png";
                     document.getElementById('spin_button').className = "";
+					document.getElementById('chocwheel').style.display="none";
 
                     // Begin the spin animation by calling startAnimation on the wheel object.
                     theWheel.startAnimation();
